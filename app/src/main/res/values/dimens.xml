@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_from_toolbar">10dp</dimen>
+    <dimen name="button_padding">10dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_start_list">10dp</dimen>
+    <dimen name="margin_top_list">10dp</dimen>
+    <dimen name="padding_list_items">15dp</dimen>
+</resources>

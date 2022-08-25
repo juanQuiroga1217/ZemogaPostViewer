@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_pastel_green">#10c64e</color>
+    <color name="light_green">#8DF3AE</color>
+    <color name="persian_indigo">#200664</color>
+    <color name="rich_black">#060606</color>
+    <color name="teal">#FF03DAC5</color>
+    <color name="cerise">#D1345B</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

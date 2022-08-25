@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Post Viewer</string>
+    <string name="btn_text_delete_all">Delete All</string>
+</resources>
