@@ -1,4 +1,4 @@
-name: Android CI
+name: Android Testing CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -26,6 +26,14 @@ jobs:
     - name: Run Tests
       run: ./gradlew test
       
+    - name: Run Unit Testing
+      run: ./gradlew testDebugUnitTest
+      
+    - name: Android Test Report
+      uses: asadmansr/android-test-report-action@v1.2.0
+      if: ${{ always() }} 
+        
     - name: Build with Gradle
       run: ./gradlew build
     
+  
