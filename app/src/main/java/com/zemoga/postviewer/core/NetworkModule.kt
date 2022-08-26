@@ -20,7 +20,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(DataModule.returnBaseUrl().baseUrl)
+            .baseUrl(DataModule.returnEnvironment().baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

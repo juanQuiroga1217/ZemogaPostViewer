@@ -1,3 +1,3 @@
 package com.zemoga.postviewer.data.environments
 
-data class Environment(val baseUrl: String)
+data class Environment(val baseUrl: String, val databaseName: String)

@@ -1,6 +1,5 @@
 package com.zemoga.postviewer.data.network
 
-import com.zemoga.postviewer.core.RetroFitHelper
 import com.zemoga.postviewer.data.model.PostModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

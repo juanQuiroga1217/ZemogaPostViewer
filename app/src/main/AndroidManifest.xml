@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zemoga.postviewer">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-        android:allowBackup="true"
         android:name=".PostViewerApp"
+        android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -16,10 +18,13 @@
         android:theme="@style/Theme.PostViewer"
         tools:targetApi="31">
         <activity
-            android:name="com.zemoga.postviewer.presentation.view.HomeActivity"
+            android:name=".presentation.view.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name="com.zemoga.postviewer.presentation.view.SplashScreen"
+            android:name=".presentation.view.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>

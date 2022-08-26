@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.zemoga.postviewer.R
 import com.zemoga.postviewer.data.model.PostModel
+import com.zemoga.postviewer.domain.frontmodel.Post
 
 class PostsAdapter(
-    private val postsList: List<PostModel>,
-    private val onClickListener: (PostModel) -> Unit
+    private val postsList: List<Post>,
+    private val onClickListener: (Post) -> Unit
 ) : RecyclerView.Adapter<PostsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {

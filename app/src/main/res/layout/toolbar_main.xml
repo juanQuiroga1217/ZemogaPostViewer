@@ -10,15 +10,45 @@
     app:popupTheme="@style/Theme.AppCompat.Light"
     tools:ignore="Overdraw">
 
+    <ImageView
+        android:id="@+id/imgBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:src="@drawable/ic_arrow_back"
+        android:visibility="gone"
+        />
+
     <TextView
         android:id="@+id/toolbar_title"
         android:textColor="@color/white"
         android:textStyle="bold|italic"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:gravity="center"
         android:lines="1"
         android:textSize="14.5sp" />
+
+    <ImageView
+        android:id="@+id/imgButtonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_20"
+        android:layout_marginEnd="@dimen/margin_20"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/imgButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_20"
+        android:layout_marginEnd="@dimen/margin_20"
+        android:layout_gravity="end"
+        />
+
 
 </androidx.appcompat.widget.Toolbar>

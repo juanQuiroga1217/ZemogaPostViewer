@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Post Viewer</string>
     <string name="btn_text_delete_all">Delete All</string>
+    <string name="btn_accept">Accept</string>
+    <string name="no_posts_available">There are no posts! please click the refresh button to download posts or add some to favorites</string>
+    <string name="title_posts">Posts</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_description">Description</string>
+    <string name="title_user">User</string>
+    <string name="title_comments">Comments</string>
+    <string name="check_internet_connection">Please check internet connection</string>
 </resources>

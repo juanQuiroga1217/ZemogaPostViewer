@@ -1,47 +1,70 @@
 package com.zemoga.postviewer.presentation.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.zemoga.postviewer.data.model.PostModel
-import com.zemoga.postviewer.domain.GetFavoritePosts
-import com.zemoga.postviewer.domain.GetPosts
+import com.zemoga.postviewer.domain.*
+import com.zemoga.postviewer.domain.frontmodel.Post
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class PostViewModel @Inject constructor(
     private val getPostsUseCase:GetPosts,
-    private val getFavoritePosts: GetFavoritePosts
+    private val getFavoritePosts: GetFavoritePosts,
+    private val getPostsFromDatabase: GetPostsFromDatabase,
+    private val deleteAllPostsUseCase: DeleteAllPosts
 ): ViewModel() {
 
-    val postModel = MutableLiveData<List<PostModel>?>()
+    val postModel = MutableLiveData<List<Post>>()
     val isLoading = MutableLiveData<Boolean>()
+    val alert = MutableLiveData<Boolean>()
 
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
             val result = getPostsUseCase()
-
-            if (!result.isNullOrEmpty())
-                result[0].isPostFavorite = true
+            if (!result.isNullOrEmpty()){
                 postModel.postValue(result)
-                isLoading.postValue(false)
+            }else{
+                showConnectionFailed()
+            }
+            isLoading.postValue(false)
+        }
+    }
+
+    fun listAllPosts() {
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val posts = getPostsFromDatabase()
+            postModel.postValue(posts)
+            isLoading.postValue(false)
         }
     }
 
     fun listFavoritePosts() {
-        isLoading.postValue(true)
-        val favoritePosts = getFavoritePosts()
-        postModel.postValue(favoritePosts)
-        isLoading.postValue(false)
+        viewModelScope.launch{
+            isLoading.postValue(true)
+            val favoritePosts = getFavoritePosts()
+            postModel.postValue(favoritePosts)
+            isLoading.postValue(false)
+        }
     }
 
-    fun listAllPosts() {
-        isLoading.postValue(true)
+    fun deleteAllPosts() {
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val result = deleteAllPostsUseCase()
+            postModel.postValue(result)
+            isLoading.postValue(false)
+        }
+    }
 
-        isLoading.postValue(false)
+    fun showConnectionFailed() {
+        alert.postValue(true)
     }
 
 
