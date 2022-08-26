@@ -8,8 +8,6 @@ import javax.inject.Inject
 class GetPosts @Inject constructor(
     private val repository : PostRepository
 ){
-
-
     suspend operator fun invoke():List<Post>{
         val localPost = repository.getAllPostsFromDatabase()
         return if (localPost.isNullOrEmpty()){
